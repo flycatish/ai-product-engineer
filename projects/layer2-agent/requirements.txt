@@ -1,0 +1,4 @@
+openai>=1.50
+python-dotenv>=1.0
+httpx2>=2.12.0
+pydantic-ai>=2.55.0

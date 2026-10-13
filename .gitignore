@@ -1,0 +1,20 @@
+# 密钥与本地配置，永远不进仓库
+.env
+
+# 本地协作上下文（含内网环境细节，不上远程）
+AGENTS.md
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# IDE
+.idea/
+.vscode/
+
+# 工具产物
+.codemate/
+.fixbot-mcp-server/
+新建 文本文档.txt
