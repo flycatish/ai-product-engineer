@@ -68,7 +68,10 @@ def chunk_files(files:list[str])-> list[dict]:
     return result
 
 if __name__ == "__main__":
-    files=[r"D:\document\projects\教程\ai-product-engineer\AGENTS.md",r"D:\document\projects\教程\ai-product-engineer\01-学习路线.md",r"D:\document\projects\教程\ai-product-engineer\02-信息源.md"]
+    import os
+    from dotenv import load_dotenv
+    load_dotenv()
+    files=os.environ["CORPUS_FILES"].split(";")
     result=chunk_files(files)
     flatten_chunk=[e['text'] for e in result]
     lens = [len(e) for e in flatten_chunk]

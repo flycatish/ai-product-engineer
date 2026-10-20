@@ -1,12 +1,14 @@
+import os,sqlite3
+from dotenv import load_dotenv
+load_dotenv()
 from chunker import chunk_files
-import sqlite3
 
 conn = sqlite3.connect("chunks.db")
 conn.execute("DROP TABLE IF EXISTS chunks_fts")
 # conn.execute("CREATE VIRTUAL TABLE chunks_fts USING fts5(key, text)")
 conn.execute("CREATE VIRTUAL TABLE chunks_fts USING fts5(key, text, tokenize='trigram')")
 
-files=[r"D:\document\projects\教程\ai-product-engineer\AGENTS.md",r"D:\document\projects\教程\ai-product-engineer\01-学习路线.md",r"D:\document\projects\教程\ai-product-engineer\02-信息源.md"]
+files=os.environ["CORPUS_FILES"].split(";")
 result=chunk_files(files)
 conn.executemany(
     "INSERT INTO chunks_fts(rowid,key, text) VALUES(?,?, ?)",

@@ -9,6 +9,6 @@ load_dotenv()
 client = OpenAI(
     base_url=os.environ["OPENAI_BASE_URL"],
     api_key=os.environ["OPENAI_API_KEY"],
-    default_headers={"X-Codehub-Token": os.environ["CODEHUB_TOKEN"]},
+    default_headers={os.environ["GATEWAY_AUTH_HEADER"]: os.environ["GATEWAY_TOKEN"]},
     http_client=httpx.Client(trust_env=False),  # 不信任何环境/注册表代理，永远直连
 )

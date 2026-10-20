@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 import truststore
 truststore.inject_into_ssl()   # Python 改用 Windows 证书库验 SSL，治自签证书
@@ -14,7 +16,7 @@ import sqlite_vec,array
 model = TextEmbedding("BAAI/bge-small-zh-v1.5")
 # print(len(list(model.embed(["你好"]))[0]))
 
-files=[r"D:\document\projects\教程\ai-product-engineer\AGENTS.md",r"D:\document\projects\教程\ai-product-engineer\01-学习路线.md",r"D:\document\projects\教程\ai-product-engineer\02-信息源.md"]
+files=os.environ["CORPUS_FILES"].split(";")
 chunks=chunk_files(files)
 texts = [c['text'] for c in chunks]
 vectors = list(model.embed(texts))

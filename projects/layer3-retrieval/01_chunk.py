@@ -1,7 +1,9 @@
-import re,statistics,random,sys
+import os,re,statistics,random,sys
+from dotenv import load_dotenv
 from collections import defaultdict
 sys.stdout.reconfigure(encoding="utf-8")
-files=[r"D:\document\projects\教程\ai-product-engineer\AGENTS.md",r"D:\document\projects\教程\ai-product-engineer\01-学习路线.md",r"D:\document\projects\教程\ai-product-engineer\02-信息源.md"]
+load_dotenv()
+files=os.environ["CORPUS_FILES"].split(";")
 
 chunks = defaultdict(list)
 hh = defaultdict(str)
