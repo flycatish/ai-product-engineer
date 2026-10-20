@@ -1,0 +1,26 @@
+{
+    "blocks": 77,
+    "data": {
+
+        "流式": {
+            "expect_ids":[44,12,13],
+            "k":3,
+            "note":"讲 02_stream.py 双通道的块"
+        },
+        "助手协作模式里验收类检查由谁跑": {
+            "expect_ids":[33],
+            "k":3,
+            "note":"根据背景"
+        },
+        "流式 reasoning": {
+            "expect_ids":[12],
+            "k":3,
+            "note":"啥时候做"
+        },
+        "postgresql": {
+            "expect_ids":[36],
+            "k":3,
+            "note":"Postgres 里怎么做向量检索"
+        }
+    }
+}
