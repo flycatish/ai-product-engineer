@@ -52,5 +52,6 @@ def hybrid_search(queries):
         # print(f"{q}: {rrfs}")
         result['data'][q]=rrfs
     return result
-# with open("detail.json","w",encoding="utf-8") as f:
-#     json.dump(result,f, ensure_ascii=False, indent=4)
+if __name__ == "__main__":
+    with open("detail.json","w",encoding="utf-8") as f:
+        json.dump(hybrid_search(['流式','助手协作模式里验收类检查由谁跑','流式 reasoning','postgresql']),f, ensure_ascii=False, indent=4)

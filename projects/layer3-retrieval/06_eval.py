@@ -16,15 +16,23 @@ def check():
         sys.exit(1)
     results=hybrid_search(queries)
 
+    rrs=[]
     for query in queries:
-        expect_ids = data['data'][query]['expect_ids']
+        expect_keys = data['data'][query]['expect_keys']
+        anchor = data['data'][query]['anchor']
         flag=False
-        for i in range(data['data'][query]['k']):
-            e = results['data'][query][i][0]
-            if e in expect_ids:
-                print(f'{query}:pass')
+        for i in range(len(results['data'][query])):
+            e = results['data'][query][i][2]
+            text = results['data'][query][i][3]
+            if e in expect_keys and anchor in text:
+                rrs.append(1.0/(i+1))
+                print(f'{query}:{i+1}')
                 flag=True
                 break
         if not flag:
-            print(f'{query}:fail')
-check()
+            rrs.append(0)
+            print(f'{query}:miss')
+    mrr=sum(rrs)/len(rrs)
+    print(f'mrr:{mrr}')
+if __name__=='__main__':
+    check()

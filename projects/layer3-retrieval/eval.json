@@ -1,26 +1,30 @@
 {
-    "blocks": 77,
+    "blocks": 92,
     "data": {
 
         "流式": {
-            "expect_ids":[44,12,13],
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>当前进度"],
+            "anchor": "02_stream.py",
             "k":3,
-            "note":"讲 02_stream.py 双通道的块"
+            "note":"讲流式输出练习和时间的块"
         },
         "助手协作模式里验收类检查由谁跑": {
-            "expect_ids":[33],
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>当前进度","AGENTS.md>协作上下文（给 AI 助手读）>用户画像>协作观察增补（2026-10-13，pydantic-ai 对比重写会话）"],
+            "anchor": "验收性检查助手代跑",
             "k":3,
-            "note":"根据背景"
+            "note":"具体说明谁去跑"
         },
         "流式 reasoning": {
-            "expect_ids":[12],
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>当前进度"],
+            "anchor": "灰色 reasoning_content",
             "k":3,
-            "note":"啥时候做"
+            "note":"讲流式 reasoning原理的块"
         },
         "postgresql": {
-            "expect_ids":[36],
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>当前进度"],
+            "anchor": "ivfflat",
             "k":3,
-            "note":"Postgres 里怎么做向量检索"
+            "note":"期望讲 pgvector 向量检索做法的块；语料中实质内容只有 2026-10-14 载体决策段（方言/算子/索引）"
         }
     }
 }

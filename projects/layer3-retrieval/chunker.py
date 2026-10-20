@@ -6,6 +6,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 def chunk_files(files:list[str])-> list[dict]:
     chunks = defaultdict(list)
     hh = defaultdict(str)
+    max_len = 600
     for file in files:
         fname=file.split("\\")[-1]
         h1 = None
@@ -29,13 +30,14 @@ def chunk_files(files:list[str])-> list[dict]:
                     pass
             else:
                 if line.strip():
-                    hh[f"{fname}>{h1}>{h2}>{h3}"]+=line+"\n"
+                    key = ">".join([v for v in [fname,h1,h2,h3] if v])
+                    hh[key]+=line+"\n"
     for k,v in hh.items():
-        if len(v)>1000:
+        if len(v)>max_len:
             v2s = v.split("- ")
             for v2 in v2s:
                 if not v2.strip(): continue
-                if len(v2) > 1000:
+                if len(v2) > max_len:
                     v3s = v2.split("。")
                     for v3 in v3s:
                         if not v3.strip(): continue
