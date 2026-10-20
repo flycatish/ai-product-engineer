@@ -21,3 +21,4 @@ __pycache__/
 
 # 生成产物
 chunks.db
+projects/layer3-retrieval/detail.json
