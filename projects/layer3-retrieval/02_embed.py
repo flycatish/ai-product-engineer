@@ -18,7 +18,7 @@ model = TextEmbedding("BAAI/bge-small-zh-v1.5")
 
 files=os.environ["CORPUS_FILES"].split(";")
 chunks=chunk_files(files)
-texts = [c['text'] for c in chunks]
+texts = [c['body'] for c in chunks]
 vectors = list(model.embed(texts))
 
 

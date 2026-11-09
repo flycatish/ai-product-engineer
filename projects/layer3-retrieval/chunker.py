@@ -65,7 +65,7 @@ def chunk_files(files:list[str])-> list[dict]:
     result=[]
     for k,v in chunks.items():
         for e in v:
-            result.append({'key':k, 'text':e})
+            result.append({'key':k, 'text':e, 'body':e[len(k)+2:]})
 
     return result
 

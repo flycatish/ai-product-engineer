@@ -1,30 +1,66 @@
 {
-    "blocks": 92,
+    "blocks": 46,
     "data": {
 
         "流式": {
-            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>当前进度"],
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>当前进度>完成记录"],
             "anchor": "02_stream.py",
             "k":3,
             "note":"讲流式输出练习和时间的块"
         },
         "助手协作模式里验收类检查由谁跑": {
-            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>当前进度","AGENTS.md>协作上下文（给 AI 助手读）>用户画像>协作观察增补（2026-10-13，pydantic-ai 对比重写会话）"],
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>协作观察（按主题收敛，2026-10-10 ~ 10-20 积累）"],
             "anchor": "验收性检查助手代跑",
             "k":3,
             "note":"具体说明谁去跑"
         },
         "流式 reasoning": {
-            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>当前进度"],
-            "anchor": "灰色 reasoning_content",
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>环境备忘（避免重复排障，坑的唯一权威）"],
+            "anchor": "tool_calls",
             "k":3,
-            "note":"讲流式 reasoning原理的块"
+            "note":"讲流式中assistant回合发生了什么"
         },
         "postgresql": {
-            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>当前进度"],
-            "anchor": "ivfflat",
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>协作原则"],
+            "anchor": "Postgres + pgvector",
             "k":3,
-            "note":"期望讲 pgvector 向量检索做法的块；语料中实质内容只有 2026-10-14 载体决策段（方言/算子/索引）"
+            "note":"向量库的决策是怎样的"
+        },
+        "沟通风格": {
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>协作观察（按主题收敛，2026-10-10 ~ 10-20 积累）"],
+            "anchor": "回复保持短平快",
+            "k":3,
+            "note":"用户的沟通风格"
+        },
+        "embedding 用的哪个模型": {
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>当前进度>完成记录","AGENTS.md>协作上下文（给 AI 助手读）>环境备忘（避免重复排障，坑的唯一权威）"],
+            "anchor": "bge-small-zh-v1.5",
+            "k":3,
+            "note":"事实：本地 embedding 选型（fastembed + bge-small-zh-v1.5 512 维），完成记录与环境备忘两块都是正解"
+        },
+        "Python 请求报 SSL 证书验证失败怎么治": {
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>环境备忘（避免重复排障，坑的唯一权威）"],
+            "anchor": "truststore",
+            "k":3,
+            "note":"事实/兜底：自签证书修法=truststore 注入系统证书库，fastembed 三坑块"
+        },
+        "中文搜索为什么要按三个字滑窗切词": {
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>环境备忘（避免重复排障，坑的唯一权威）","AGENTS.md>协作上下文（给 AI 助手读）>当前进度>完成记录"],
+            "anchor": "trigram",
+            "k":3,
+            "note":"机制：FTS5 对 CJK 不切分→trigram 3 字滑窗的因果链；环境备忘与完成记录两块均成立"
+        },
+        "向量检索为什么必须带条数限制": {
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>环境备忘（避免重复排障，坑的唯一权威）"],
+            "anchor": "KNN 查询必须带 LIMIT",
+            "k":3,
+            "note":"机制：vec0 契约 KNN 必须带 LIMIT（或 k=?）；query 全 paraphrase 不抄语料"
+        },
+        "推理模型多出来的思考 token 计不计费": {
+            "expect_keys": ["AGENTS.md>协作上下文（给 AI 助手读）>环境备忘（避免重复排障，坑的唯一权威）"],
+            "anchor": "completion_tokens",
+            "k":3,
+            "note":"事实：思考 token 计入 completion_tokens（成本口径）"
         }
     }
 }
